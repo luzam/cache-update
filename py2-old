@@ -1,0 +1,4 @@
+FROM python:2.7
+
+RUN apt update && apt install libmemcached-dev -y
+RUN pip install pylibmc==1.5.2

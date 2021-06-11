@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+    py3:
+        build:
+            context: .
+            dockerfile: py3
+        volumes:
+            - "./check.py:/check.py"
+        command: "python /check.py"
+
+    py2-old:
+        build:
+            context: .
+            dockerfile: py2-old
+        volumes:
+            - "./check.py:/check.py"
+        command: "python /check.py"
+
+    py2-new:
+        build:
+            context: .
+            dockerfile: py2-new
+        volumes:
+            - "./check.py:/check.py"
+        command: "python /check.py"
+
+    cache:
+        image: memcached:1.5.10
+        ports:
+            - "11211:11211"
+
