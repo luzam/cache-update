@@ -67,6 +67,7 @@ c.set(my_prefix + "uni", u"uni")
 c.set(my_prefix + "binstr", b"binstr")
 c.set(my_prefix + "toto", Toto())
 c.set(my_prefix + "oldClassStyle", OldStyleToto())
+c.set(my_prefix + "dictStr", {"key":42})
 
 
 # wait for everybody
@@ -118,3 +119,7 @@ for p in prefixes:
     # Old class style (class no inheriting from object explicitely)
     # but we dont have those anymore in the codebase
     check(p, "oldClassStyle", OldStyleToto())
+
+    # the classic bytes vs string
+    check(p, "str", "str")
+    
